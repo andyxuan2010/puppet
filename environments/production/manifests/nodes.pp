@@ -7,6 +7,10 @@ node 'v3'
 	package{'ntp':
 	    ensure => 'installed',
 	}
+	file { '/test.txt':
+		ensure => 'present',
+		content=> inline_template ("created for testing pupose")
+	}
 }
 
 node 'v4'
