@@ -7,12 +7,11 @@ node 'v3'
 	package{'ntp':
 	    ensure => 'installed',
 	}
-
 	file { '/test.txt':
 		ensure => 'present',
 		content=> inline_template (" Created by puppet at <%= Time.now %> \n"),
 	}
-	service {'ntp':
+	service {'ntpd':
 		ensure => 'running',
 		enable => true,
 	}
